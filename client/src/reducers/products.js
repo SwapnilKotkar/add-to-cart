@@ -1,8 +1,8 @@
-import { FETCH_ALL_PRODUCTS, FETCH_PRODUCTS_BY_SEARCH, CREATE_PRODUCT, DELETE_PRODUCT, START_LOADING, END_LOADING} from '../actions/actionTypes'
+import { FETCH_ALL_PRODUCTS, FETCH_PRODUCTS_BY_SEARCH, CREATE_PRODUCT, DELETE_PRODUCT, ADD_TO_CART, REMOVE_FROM_CART, START_LOADING, END_LOADING} from '../actions/actionTypes'
 
-const initialState = { isLoading: true, products: [] }
+const initialState = { isLoading: true, products: [], cart:[] }
 
-export default (state = initialState, action) => {
+const productsReducer =  (state = initialState, action) => {
     switch(action.type){
         case START_LOADING:
             return { ...state, isLoading: true }
@@ -16,7 +16,13 @@ export default (state = initialState, action) => {
             return { ...state, products: [...state.products, action.payload] };
         case DELETE_PRODUCT:
             return { ...state, products: state.products.filter((product) => product._id !== action.payload)}
+        case ADD_TO_CART:
+            return { ...state, cart: [...state.cart, action.payload] }
+        case REMOVE_FROM_CART:
+            return { ...state, cart: state.cart.filter((item) => item._id !== action.payload)}
         default:
             return state;
     }
 }
+
+export default productsReducer;

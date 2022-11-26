@@ -1,7 +1,6 @@
 import * as api from "../api";
-import { FETCH_ALL_PRODUCTS, FETCH_PRODUCTS_BY_SEARCH, CREATE_PRODUCT, DELETE_PRODUCT, START_LOADING, END_LOADING } from "./actionTypes";
+import { FETCH_ALL_PRODUCTS, FETCH_PRODUCTS_BY_SEARCH, CREATE_PRODUCT, DELETE_PRODUCT, START_LOADING, END_LOADING, ADD_TO_CART, REMOVE_FROM_CART } from "./actionTypes";
 
-//Action Creators
 export const getProducts = (page) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
@@ -48,3 +47,11 @@ export const deleteProduct = (id) => async (dispatch) => {
 
   }
 };
+
+export const addToCart = (product) => {
+  return ({ type: ADD_TO_CART, payload: product })
+}
+
+export const removeFromCart = (id) => {
+  return ({ type: REMOVE_FROM_CART, payload: id })
+}

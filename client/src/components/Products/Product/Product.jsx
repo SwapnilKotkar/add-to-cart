@@ -4,7 +4,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import { useDispatch } from 'react-redux'
 
 import useStyles from './styles';
-import { deleteProduct } from '../../../actions/products'
+import { deleteProduct, addToCart } from '../../../actions/products'
 
 const Product = ({ product }) => {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ const Product = ({ product }) => {
         <Typography className={classes.price} variant="body2" color="textSecondary" component="p">₹{product.Variant_Price}</Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
-        <Button variant='contained' color='primary' size='small' style={{textTransform: 'none'}}>Add to Cart</Button>
+        <Button variant='contained' color='primary' size='small' style={{textTransform: 'none'}} onClick={() => { dispatch(addToCart(product)) }}>Add to Cart</Button>
         <Button size="small" color="primary" onClick={() => { dispatch(deleteProduct(product._id)) }}><DeleteIcon fontSize="small"/> Delete</Button>
 
       </CardActions>

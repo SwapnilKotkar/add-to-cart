@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <AppBar className={classes.appBar}  position='static' color='inherit'>
         <Link to={'/'} style={{textDecoration: 'none'}}><Typography className={classes.heading} variant='h4' align='center'>Products</Typography></Link>
-            <Button color='primary' size='small'><ShoppingCartIcon/></Button>
+        <Link to={'/cart'}><Button color='primary' size='small'><ShoppingCartIcon/></Button></Link>
     </AppBar>
 
   )
