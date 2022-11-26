@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Grow, Grid, Paper, AppBar, TextField, Button} from '@material-ui/core'
+import { Container, Grid, Paper, AppBar, TextField, Button} from '@material-ui/core'
 import { useDispatch } from 'react-redux'
 import { useLocation, useNavigate} from 'react-router-dom'
 import ChipInput from 'material-ui-chip-input'
@@ -20,7 +20,6 @@ const Home = () => {
   const dispatch = useDispatch();
   const query = useQuery();
   const page = query.get('page') || 1 ;
-  // const searchQuery = query.get('searchQuery');
   const [search, setSearch] = useState('')
   const [SKU, setSKU] = useState('')
   const [tags, setTags] = useState([])
@@ -43,7 +42,6 @@ const Home = () => {
   }, [dispatch])
 
   return (
-    <Grow in>
         <Container className={classes.containerWidth}>
             <Grid className={classes.gridContainer} container justifyContent='space-between' alignItems='stretch' spacing={3}>
               <Grid item xs={12} sm={6} md={9}>
@@ -63,7 +61,6 @@ const Home = () => {
               </Grid>
             </Grid>
         </Container>
-      </Grow>
   )
 }
 
