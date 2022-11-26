@@ -17,11 +17,12 @@ export const getProducts = async (req, res) => {
 };
 
 export const getProductsBySearch = async (req, res) => {
-  const {searchQuery, tags} = req.query;
+  const {searchQuery, sku, tags} = req.query;
+
   try {
     const title = new RegExp(searchQuery, 'i')
 
-    const products = await Products.find({ $or: [{ Title: title }, { Tags: { $in: tags.split(',') }}] })
+    const products = await Products.find({ $or: [{ Title: title }, { Variant_SKU: sku }, { Tags: { $in: tags.split(',') }}] })
 
     res.json({ data: products})
 

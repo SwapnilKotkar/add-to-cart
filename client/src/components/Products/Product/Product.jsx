@@ -24,6 +24,9 @@ const Product = ({ product }) => {
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">{truncate(product.Body, 120)}</Typography>
       </CardContent>
+      <CardContent>
+        <Typography className={classes.price} variant="body2" color="textSecondary" component="p">₹{product.Variant_Price}</Typography>
+      </CardContent>
       <CardActions className={classes.cardActions}>
         <Button variant='contained' color='primary' size='small' style={{textTransform: 'none'}}>Add to Cart</Button>
         <Button size="small" color="primary" onClick={() => { dispatch(deleteProduct(product._id)) }}><DeleteIcon fontSize="small"/> Delete</Button>

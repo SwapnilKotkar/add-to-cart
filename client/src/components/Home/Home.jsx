@@ -22,20 +22,15 @@ const Home = () => {
   const page = query.get('page') || 1 ;
   const searchQuery = query.get('searchQuery');
   const [search, setSearch] = useState('')
+  const [SKU, setSKU] = useState('')
   const [tags, setTags] = useState([])
 
   const searchProduct = () => {
-    if(search.trim() || tags){
-      dispatch(getProductsBySearch({ search, tags: tags.join(',')}))
-      navigate(`/products/search?searchQuery=${search || 'none'}&tags=${tags.join(',')}`)
+    if(search.trim() || SKU.trim() || tags){
+      dispatch(getProductsBySearch({ search, SKU, tags: tags.join(',')}))
+      navigate(`/products/search?searchQuery=${search || 'none'}&sku=${SKU}&tags=${tags.join(',')}`)
     }else{
       navigate('/')
-    }
-  }
-
-  const handleKeyPress = (e) => {
-    if(e.keyCode === 13) {
-      searchProduct();
     }
   }
 
@@ -56,7 +51,8 @@ const Home = () => {
               </Grid>
               <Grid item xs={12} sm={6} md={3}>
               <AppBar className={classes.appBarSearch} position='static' color='inherit'>
-                <TextField name='search' variant='outlined' label='Search products' fullWidth value={search} onKeyPress={handleKeyPress} onChange={(e) => setSearch(e.target.value)}/>
+                <TextField style={{marginBottom: "10px"}} name='search' variant='outlined' label='Search products' fullWidth value={search} onChange={(e) => setSearch(e.target.value)}/>
+                <TextField name='searchbySKU' variant='outlined' label='Search by SKU' fullWidth value={SKU} onChange={(e) => setSKU(e.target.value)}/>
                 <ChipInput style={{margin: "10px 0"}} value={ tags } onAdd={handleAdd} onDelete={handleDelete} label='Search tags' variant='outlined'/>
                 <Button onClick={searchProduct} color='primary' variant='contained'>Search</Button>
               </AppBar>
