@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "@material-ui/core";
+import { Container } from "@mui/material";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
@@ -12,7 +12,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Container className={classes.containerWidth}>
+      <Container maxWidth='xl'>
         <Navbar />
         <Routes>
           <Route path="/" exact element={<Navigate to="/products"/>} />

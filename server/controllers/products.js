@@ -4,7 +4,7 @@ import Products from "../models/productsSchema.js";
 export const getProducts = async (req, res) => {
   const { page } = req.query;
   try {
-    const PRODUCTS_LIMIT = 8;
+    const PRODUCTS_LIMIT = 9;
     const startIndex = (Number(page) - 1) * PRODUCTS_LIMIT;
     const total = await Products.countDocuments({});
 

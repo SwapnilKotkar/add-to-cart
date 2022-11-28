@@ -9,9 +9,9 @@ import {
   Paper,
   CircularProgress,
   Button
-} from "@material-ui/core";
+} from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import DeleteIcon from '@material-ui/icons/Delete';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 import { removeFromCart } from '../../actions/products'
 

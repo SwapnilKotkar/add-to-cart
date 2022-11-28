@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, CardActions, CardContent, CardMedia, Button, Typography} from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
+import { Card, CardActions, CardContent, CardMedia, Button, Typography} from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { useDispatch } from 'react-redux'
 
 import useStyles from './styles';

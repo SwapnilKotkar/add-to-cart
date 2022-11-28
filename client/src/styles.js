@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 
 export default makeStyles((theme) => ({
   containerWidth: {
@@ -8,10 +8,11 @@ export default makeStyles((theme) => ({
     borderRadius: 15,
     margin: "30px 0",
     padding: "15px 30px",
+  },
+  box: {
+    width: "100%",
     display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    justifyContent: "space-between"
   },
   heading: {
     color: "#3f51b5",

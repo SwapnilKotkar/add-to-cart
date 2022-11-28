@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, CircularProgress } from  '@material-ui/core'
+import { Grid, CircularProgress } from  '@mui/material'
 import { useSelector } from 'react-redux';
 
 import Product from "./Product/Product";
@@ -16,7 +16,7 @@ const Products = () => {
       <Grid className={classes.mainContainer} container alignItems='stretch' spacing={3}>
         {
           products.map((product) => (
-            <Grid key={product._id} item xs={12} md={6} lg={3}>
+            <Grid key={product._id} item xs={12} md={6} lg={4}>
               <Product product={product}/>
             </Grid>
           ))
