@@ -15,8 +15,9 @@ export default makeStyles((theme) => ({
     marginTop: "1rem",
     padding: "16px",
   },
-  gridContainer: {
-    [theme.breakpoints.down("xs")]: {
+  "@media (max-width: 500px)": {
+    gridContainer: {
+      display: "flex",
       flexDirection: "column-reverse",
     },
   },

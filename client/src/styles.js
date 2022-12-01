@@ -17,7 +17,7 @@ export default makeStyles((theme) => ({
   heading: {
     color: "#3f51b5",
   },
-  [theme.breakpoints.down("sm")]: {
+  "@media (max-width: 600px)": {
     mainContainer: {
       flexDirection: "column-reverse",
     },

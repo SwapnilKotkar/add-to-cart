@@ -6,11 +6,12 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import { configureStore } from "@reduxjs/toolkit";
 import { ThemeProvider } from "@mui/styles";
-import { createTheme } from "@mui/material";
+import { createTheme, responsiveFontSizes } from "@mui/material";
 
 import rootReducer from "./reducers";
 
-const theme = createTheme();
+let theme = createTheme();
+theme = responsiveFontSizes(theme);
 
 const store = configureStore({ reducer: rootReducer, middleware: [thunk] });
 
