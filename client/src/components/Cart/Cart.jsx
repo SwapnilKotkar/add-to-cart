@@ -19,7 +19,7 @@ const Cart = () => {
   const { cart, isLoading } = useSelector((state) => state.productsReducer);
   const dispatch = useDispatch();
 
-  if( !cart.length && !isLoading ) return 'Your cart is empty';
+  if( !cart.length && !isLoading ) return <h4>Your cart is empty</h4>;
 
   return (
     isLoading ? <CircularProgress/> : (
