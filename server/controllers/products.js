@@ -19,10 +19,25 @@ export const getProducts = async (req, res) => {
 export const getProductsBySearch = async (req, res) => {
   const {searchQuery, sku, tags} = req.query;
 
-  try {
-    const title = new RegExp(searchQuery, 'i')
+  let products = [];
 
-    const products = await Products.find({ $or: [{ Title: title }, { Variant_SKU: sku }, { Tags: { $in: tags.split(',') }}] })
+  try {
+
+    if(searchQuery) {
+      const title = new RegExp(searchQuery, 'i')
+      const result = await Products.find({ Title: title })
+      products.push(...result)
+    }
+
+    if(sku) {
+      const result = await Products.find({ Variant_SKU: sku })
+      products.push(...result)
+    }
+
+    if(tags) {
+      const result = await Products.find({ Tags: { $in: tags.split(',') }})
+      products.push(...result)
+    }
 
     res.json({ data: products})
 
