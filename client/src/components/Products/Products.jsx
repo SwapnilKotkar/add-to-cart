@@ -9,7 +9,7 @@ const Products = () => {
   const { products, isLoading } = useSelector((state) => state.productsReducer)
   const classes = useStyles();
 
-  if( !products.length && !isLoading ) return 'No posts';
+  if( !products.length && !isLoading ) return 'No products';
 
   return (
     isLoading ? <CircularProgress/> : (
